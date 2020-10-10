@@ -1,8 +1,7 @@
-package com.example.demoparcelable
+package com.example.demoparcelable.model
 
 import android.os.Parcel
 import android.os.Parcelable
-import java.util.*
 
 class PhieuChi : Parcelable {
     public var mdata:String?=null

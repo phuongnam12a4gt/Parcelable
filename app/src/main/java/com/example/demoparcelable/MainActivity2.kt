@@ -2,6 +2,8 @@ package com.example.demoparcelable
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.demoparcelable.model.Example
+import com.example.demoparcelable.model.PhieuChi
 import kotlinx.android.synthetic.main.activity_main2.*
 
 class MainActivity2 : AppCompatActivity() {
@@ -12,9 +14,19 @@ class MainActivity2 : AppCompatActivity() {
         var bundle=intent.extras
         if(bundle!=null)
         {
-            var phieuchi: PhieuChi? =bundle.getParcelable("key1")
-            if (phieuchi != null) {
-                mtextview.setText(phieuchi.mdata)
+            if(bundle.getParcelable<Example>("key1") is Example)
+            {
+                var kq:Example?=bundle.getParcelable<Example>("key1")
+                if (kq != null) {
+                    mtextview.setText(kq.name)
+                }
+            }
+            if(bundle.getParcelable<PhieuChi>("key1") is PhieuChi)
+            {
+                var kq:PhieuChi?=bundle.getParcelable<PhieuChi>("key1")
+                if (kq != null) {
+                    mtextview.setText(kq.mdata)
+                }
             }
         }
     }
